@@ -26,6 +26,9 @@ class TermsComponent
     /** @use ResourceFormComponentTrait<TermsInterface> */
     use ResourceFormComponentTrait;
 
+    /**
+     * @param RepositoryInterface<TermsInterface> $productRepository
+     */
     public function __construct(
         RepositoryInterface $productRepository,
         FormFactoryInterface $formFactory,
@@ -39,7 +42,7 @@ class TermsComponent
     #[LiveAction]
     public function generateTermsSlug(#[LiveArg] string $localeCode = ''): void
     {
-        $this->formValues['translations'][$localeCode]['slug'] = $this->slugGenerator->generate($this->formValues['translations'][$localeCode]['name']);
+        $this->formValues['translations'][$localeCode]['slug'] = $this->slugGenerator->generate((string) $this->formValues['translations'][$localeCode]['name']);
     }
 
     protected function getDataModelValue(): string
