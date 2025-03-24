@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Setono\SyliusTermsPlugin\Form\Type;
 
+use Setono\SyliusTermsPlugin\Model\TermsTranslation;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -17,6 +18,11 @@ final class TermsTranslationType extends AbstractResourceType
             ->add('name', TextType::class, [
                 'label' => 'setono_sylius_terms.form.terms.name',
                 'help' => 'setono_sylius_terms.form.terms.name_help',
+                'attr' => [
+                    'data-action' => 'live#action',
+                    'data-live-action-param' => 'on(change)|generateTermsSlug',
+                    'data-live-locale-code-param' => $builder->getPropertyPath()->getElement(0),
+                ]
             ])
             ->add('slug', TextType::class, [
                 'label' => 'setono_sylius_terms.form.terms.slug',

@@ -2,7 +2,12 @@ sylius_twig_hooks:
   hooks:
     'sylius_admin.terms.create.content':
       form:
-        template: '@SetonoSyliusTermsPlugin/admin/terms/_form.html.twig'
+        component: 'setono_sylius_terms:terms:form'
+        props:
+          form: '@=_context.form'
+          resource: '@=_context.resource'
+          template: '@SetonoSyliusTermsPlugin/admin/terms/_form.html.twig'
+        priority: 0
     'sylius_admin.terms.create.content.form#left':
       form:
         template: '@SetonoSyliusTermsPlugin/admin/terms/form/left.html.twig'
@@ -11,7 +16,12 @@ sylius_twig_hooks:
         template: '@SetonoSyliusTermsPlugin/admin/terms/form/right.html.twig'
     'sylius_admin.terms.update.content':
       form:
-        template: '@SetonoSyliusTermsPlugin/admin/terms/_form.html.twig'
+        component: 'setono_sylius_terms:terms:form'
+        props:
+          form: '@=_context.form'
+          resource: '@=_context.resource'
+          template: '@SetonoSyliusTermsPlugin/admin/terms/_form.html.twig'
+        priority: 0
     'sylius_admin.terms.update.content.form#left':
       form:
         template: '@SetonoSyliusTermsPlugin/admin/terms/form/left.html.twig'
