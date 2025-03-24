@@ -28,3 +28,7 @@ sylius_twig_hooks:
     'sylius_admin.terms.update.content.form#right':
       form:
         template: '@SetonoSyliusTermsPlugin/admin/terms/form/right.html.twig'
+    'sylius_shop.checkout.complete.content.form':
+      terms:
+        template: '@SetonoSyliusTermsPlugin/shop/checkout/terms.html.twig'
+        priority: 50
